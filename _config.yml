@@ -1,0 +1,29 @@
+# Site settings
+title: Analytics Extensions API
+email: git@tableau.com
+description: Extend Tableau calculations to dynamically include popular data science programming languages and external tools and platforms.
+baseurl: "/analytics-extensions-api"
+# permalink: pretty
+
+defaults:
+  -
+    scope:
+      path: "" # Apply to all files
+      type: pages
+    values:
+      layout: "default"
+      permalink: /:path/:basename:output_ext      
+
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+github: [metadata]
+
+kramdown:
+    toc_levels: 1..3
+
+# Exclude
+exclude: ['node_modules', 'Examples']
+
+
