@@ -122,6 +122,74 @@ Property | Description
 `methods` | List of supported authentication methods with their properties.
 `methods.basic-auth` | TabPy requires basic access authentication. See [TabPy Server Configuration Instructions](server-config.md#authentication) for how to configure authentication.
 
+
+### POST /evaluate
+
+Executes a block of code, replacing named parameters with their provided values. The Evaluate endpoint is where all of the analysis using the service is done.
+
+The expected POST body is a JSON dictionary with two elements:
+
+- **data**: a value that contains the parameter values passed to the code. These values are key-value pairs, following a specific convention for key names (_arg1, _arg2, etc.). These take dimensions and measures from Tableau and pass them to the external service.
+- **script**: a value that contains one or more lines of code or instructions for the analytics extension. Any references to the data or parameter names will be replaced by their values according to data. It defines the instructions about what the external service should execute. For example, a Python script, the name of a remote process or function, a script in another language, or it could be empty if the service just performs a single function.
+
+Example request:
+
+```HTTP
+POST /evaluate HTTP/1.1
+Host: localhost:9004
+Accept: application/json
+
+{"data": {"_arg1": 1, "_arg2": 2}, "script": "return _arg1+_arg2"}
+```
+
+Example response:
+
+```HTTP
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+3
+```
+
+Using curl:
+
+```bash
+curl -X POST http://localhost:9004/evaluate \
+-d '{"data": {"_arg1": 1, "_arg2": 2}, "script": "return _arg1 + _arg2"}'
+```
+
+It is possible to call a deployed function from within the code block through
+the predefined function `tabpy.query`. This function works like the client
+library's `query` method, and returns the corresponding data structure. The
+function must first be deployed as an endpoint in the server.
+
+The following example calls the endpoint `clustering`:
+
+```HTTP
+POST /evaluate HTTP/1.1
+Host: example.com
+Accept: application/json
+
+{ "data":
+  { "_arg1": [6.35, 6.40, 6.65, 8.60, 8.90, 9.00, 9.10],
+    "_arg2": [1.95, 1.95, 2.05, 3.05, 3.05, 3.10, 3.15]
+  },
+  "script": "return tabpy.query('clustering', x=_arg1, y=_arg2)"}
+```
+
+The next example shows how to call `evaluate` from a terminal using curl. This
+code queries the method `add` that was deployed in the section
+[deploy-function](tabpy-tools.md#deploying-a-function):
+
+```bash
+curl -X POST http://localhost:9004/evaluate \
+-d '{"data": {"_arg1":1, "_arg2":2},
+     "script": "return tabpy.query(\"add\", x=_arg1, y=_arg2)[\"response\"]"}'
+```
+
+
+## Proposed
+
 ### GET /status
 
 Gets runtime status of deployed endpoints. If no endpoints are deployed in
@@ -234,70 +302,6 @@ Using curl:
 
 ```bash
 curl -X GET http://localhost:9004/endpoints/add
-```
-
-### POST /evaluate
-
-Executes a block of code, replacing named parameters with their provided values. The Evaluate endpoint is where all of the analysis using the service is done.
-
-The expected POST body is a JSON dictionary with two elements:
-
-- **data**: a value that contains the parameter values passed to the code. These values are key-value pairs, following a specific convention for key names (_arg1, _arg2, etc.). These take dimensions and measures from Tableau and pass them to the external service.
-- **script**: a value that contains one or more lines of code or instructions for the analytics extension. Any references to the data or parameter names will be replaced by their values according to data. It defines the instructions about what the external service should execute. For example, a Python script, the name of a remote process or function, a script in another language, or it could be empty if the service just performs a single function.
-
-Example request:
-
-```HTTP
-POST /evaluate HTTP/1.1
-Host: localhost:9004
-Accept: application/json
-
-{"data": {"_arg1": 1, "_arg2": 2}, "script": "return _arg1+_arg2"}
-```
-
-Example response:
-
-```HTTP
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-3
-```
-
-Using curl:
-
-```bash
-curl -X POST http://localhost:9004/evaluate \
--d '{"data": {"_arg1": 1, "_arg2": 2}, "script": "return _arg1 + _arg2"}'
-```
-
-It is possible to call a deployed function from within the code block through
-the predefined function `tabpy.query`. This function works like the client
-library's `query` method, and returns the corresponding data structure. The
-function must first be deployed as an endpoint in the server.
-
-The following example calls the endpoint `clustering`:
-
-```HTTP
-POST /evaluate HTTP/1.1
-Host: example.com
-Accept: application/json
-
-{ "data":
-  { "_arg1": [6.35, 6.40, 6.65, 8.60, 8.90, 9.00, 9.10],
-    "_arg2": [1.95, 1.95, 2.05, 3.05, 3.05, 3.10, 3.15]
-  },
-  "script": "return tabpy.query('clustering', x=_arg1, y=_arg2)"}
-```
-
-The next example shows how to call `evaluate` from a terminal using curl. This
-code queries the method `add` that was deployed in the section
-[deploy-function](tabpy-tools.md#deploying-a-function):
-
-```bash
-curl -X POST http://localhost:9004/evaluate \
--d '{"data": {"_arg1":1, "_arg2":2},
-     "script": "return tabpy.query(\"add\", x=_arg1, y=_arg2)[\"response\"]"}'
 ```
 
 ### POST /query/:endpoint
