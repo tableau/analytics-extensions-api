@@ -21,4 +21,4 @@ Before we can accept pull requests from contributors, we require a signed [Contr
 
 Use [Issues](https://github.com/tableau/analytics-extensions-api/issues) to log any problems or bugs you encounter in the docs.
 
-Known Issue - In Tableau 20.1 there is an issue with HTTP headers which sets the content type as application/x-www-form-urlencoded instead of application/json. This doesn't affect the actual data being sent, but may interfere with extensions that explicitely expect a JSON object. At present for any existing services that expect JSON, the workaround is the cast the incoming data as JSON. This issue should be corrected shortly.
+Known Issue - In Tableau 20.1 there is an issue with HTTP headers which sets the Content-Type as: application/x-www-form-urlencoded instead of application/json. This doesn't affect the actual data being sent, but may interfere with analytics extensions that explicitely expect a JSON content type. At present for any existing services that expect JSON, the workaround is the cast the incoming data as JSON. This issue should be corrected shortly.
