@@ -12,7 +12,8 @@ layout: docs
 
 Use the Tableau Analytics Extensions REST API to extend Tableau calculations dynamically to include popular data science programming languages and external tools and platforms.
 
-## GET /info
+## API Version 1
+### GET /info
 
 Get static information about the server. This is used for Tableau to understand how the analytics extension is configured. It returns data about the service, such as whether authentication is required. It helps Tableau understand what’s sitting on the other side and what Tableau should be passing.
 
@@ -85,8 +86,6 @@ Example:
 ```bash
 curl -X GET http://localhost:9004/info
 ```
-
-## API version 1
 
 ### Authentication
 
