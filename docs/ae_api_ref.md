@@ -13,6 +13,11 @@ layout: docs
 Use the Tableau Analytics Extensions REST API to extend Tableau calculations dynamically to include popular data science programming languages and external tools and platforms.
 
 ## API Version 1
+
+### Tableau Implementation
+
+The methods in this section are implemented in Tableau products as of version 20.1. In Tableau Desktop, the 'Test Connection' button in the Analytics Extension connection dialogue will call the /info method to determine if authentication is required and test if the analytics extension can be connected to succesfully. When SCRIPT_X calculations execute in Tableau Desktop and Server they call the /evaluate method.
+
 ### GET /info
 
 Get static information about the server. This is used for Tableau to understand how the analytics extension is configured. It returns data about the service, such as whether authentication is required. It helps Tableau understand what’s sitting on the other side and what Tableau should be passing.
