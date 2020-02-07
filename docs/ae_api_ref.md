@@ -17,23 +17,23 @@ Use the Tableau Analytics Extensions REST API to extend Tableau calculations dyn
 
 Get static information about the server. This is used for Tableau to understand how the analytics extension is configured. It returns data about the service, such as whether authentication is required. It helps Tableau understand what’s sitting on the other side and what Tableau should be passing.
 
-### URL
+#### URL
 
 ```HTTP
 /info
 ```
 
-### Method
+#### Method
 
 ```HTTP
 GET
 ```
 
-### URL parameters
+#### URL parameters
 
 None.
 
-### Data Parameters
+#### Data Parameters
 
 None.
 
