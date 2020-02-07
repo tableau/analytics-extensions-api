@@ -194,6 +194,8 @@ curl -X POST http://localhost:9004/evaluate \
 
 ## Proposed
 
+The following methods are currently implemented in TabPy, Tableau's reference API implementation, but are not yet implemented in Tableau Desktop or Server.
+
 ### GET /status
 
 Gets runtime status of deployed endpoints. If no endpoints are deployed in
