@@ -58,14 +58,7 @@ For a successful call:
       "name": "TabPy Server",
       "versions": {
           "v1": {
-              "features": {
-                  "authentication": {
-                      "required": true,
-                      "methods": {
-                          "basic-auth": {}
-                      }
-                  }
-              }
+              "features": {}
           }
       }
   }
@@ -94,7 +87,7 @@ curl -X GET http://localhost:9004/info
 
 ### Authentication
 
-When authentication is enabled for v1 API `/info` call, the response contains authentication feature parameters, e.g.:
+When authentication is enabled for v1 API `/info` call, the response contains the authentication feature parameter, e.g.:
 
   ```json
   {
@@ -122,7 +115,7 @@ v1 authentication specific features (see the example above):
 
 Property | Description
 --- | ---
-`required` | Authentication is never optional for a client to use if it is in the features list.
+`required` | Authentication is never optional for a client to use if it is in the features list. Both settings of true or false will result in a requirement for authentication.
 `methods` | List of supported authentication methods with their properties.
 `methods.basic-auth` | TabPy requires basic access authentication. See [TabPy Server Configuration Instructions](server-config.md#authentication) for how to configure authentication.
 
