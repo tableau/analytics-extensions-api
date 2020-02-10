@@ -16,4 +16,4 @@ The POST body is a JSON dictionary with two elements:
 
 Example: `curl -X POST http://localhost:9004/evaluate -d '{"data": {"arg_1":1,"arg_2":2}, "script": "return _arg1 + _arg2"}'`
 
-For more information, see [https://github.com/tableau/TabPy/blob/master/docs/api-v1.md#httppost-evaluate](https://github.com/tableau/TabPy/blob/master/docs/api-v1.md#httppost-evaluate).
+For more information, see [https://tableau.github.io/analytics-extensions-api/docs/ae_api_ref.html#post-evaluate](https://tableau.github.io/analytics-extensions-api/docs/ae_api_ref.html#post-evaluate).
