@@ -33,4 +33,4 @@ Response body:
 }
 ```
 
-For more information, see [https://github.com/tableau/TabPy/blob/master/docs/server-rest.md#get-info](https://github.com/tableau/TabPy/blob/master/docs/server-rest.md#get-info).
+For more information, see [https://tableau.github.io/analytics-extensions-api/docs/ae_api_ref.html#get-info](https://tableau.github.io/analytics-extensions-api/docs/ae_api_ref.html#get-info).
