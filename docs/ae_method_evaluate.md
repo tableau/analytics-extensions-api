@@ -7,6 +7,8 @@ layout: docs
 
 Executes a block of code, replacing named parameters with their provided values. The Evaluate endpoint is where all of the analysis using the service is done.
 
+Username and password values that have been configured in Tableau are passed to the Analytics Extension using the HTTP headers of calls to the /evaluate method.
+
 The POST body is a JSON dictionary with two elements:
 
 - **data**: a value that contains the parameter values passed to the code. These values are key-value pairs, following a specific convention for key names (_arg1, _arg2, etc.). These take dimensions and measures from Tableau and pass them to the external service.
