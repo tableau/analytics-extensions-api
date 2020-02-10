@@ -23,4 +23,4 @@ In Tableau 20.1 there is an issue with HTTP headers which sets the Content-Type 
 
 ### Dummy /eval Call is Made When Authentication is Enabled in Tableau
 
-When authentication is configured on in Tableau, to configure a connected session when the 'Test Connection' button is clicked, or when a SCRIPT_X function is evaluated, Tableau will make a dummy POST /eval call to the Analytics Extension.  Currently this POST request takes the form of: {'script': 'return int(1)', 'data': {'_arg1': [4]}}. To handle this call and correctly authenticate, your server will need to return an integer 1.
+When authentication is configured on in Tableau, to configure a connected session when the 'Test Connection' button is clicked, or when a SCRIPT_X function is evaluated, Tableau will make a dummy POST /eval call to the Analytics Extension.  Currently this POST request takes the form of: {'script': 'return int(1)', 'data': {'_arg1': [4]}}. To handle this call and correctly authenticate, your server will need to return an integer 1 for eval requests with the script: return int(1).
