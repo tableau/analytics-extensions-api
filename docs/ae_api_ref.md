@@ -12,7 +12,7 @@ layout: docs
 
 Use the Tableau Analytics Extensions REST API to extend Tableau calculations dynamically to include popular data science programming languages and external tools and platforms.
 
-## API Version 1
+## API Version 1 (Implemented in Tableau 20.1+)
 
 ### Tableau Implementation
 
