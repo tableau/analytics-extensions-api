@@ -19,3 +19,9 @@ This is a live example to demonstrate how to create an analytics extension in ja
 6) Statistical Mode\
 
 7) Internal Rate of Return (IRR) financial calculations (Powered by [Finance.js](http://financejs.org/))\
+
+### Example of IRR used in a calculation
+
+[<img src="https://cdnl.tblsft.com/sites/default/files/blog/analytics-extensions-api_recurring-revenue_0.png">](https://tableau.com/)
+
+https://cdnl.tblsft.com/sites/default/files/blog/analytics-extensions-api_recurring-revenue_0.png
