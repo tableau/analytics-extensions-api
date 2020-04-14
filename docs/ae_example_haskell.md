@@ -9,4 +9,6 @@ For more information, see his blog post [Tableau External Services API: Adding H
 
 The GitHub repository for the project is: [https://github.com/tfoldi/tc19-haskell-ext/](https://github.com/tfoldi/tc19-haskell-ext/).
 
+### Example of the Haskell analytics extension running code written in a dashboard extension.
+
 [<img src="https://cdns.tblsft.com/sites/default/files/blog/analytics-extensions_haskell.png">](https://tableau.com/)
