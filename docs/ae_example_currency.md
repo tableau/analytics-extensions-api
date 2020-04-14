@@ -8,7 +8,7 @@ This is a live example to demonstrate how to create an analytics extension in ja
 ### Available example functions include:
 1) Currency conversion (Powered by [Open Exchange Rates](https://openexchangerates.org/))
 
-2) Langauge translation (Powered by [Yandex](https://translate.yandex.com/))
+2) Language translation (Powered by [Yandex](https://translate.yandex.com/))
 
 3) Drive distance between locations (Powered by [HERE](https://www.here.com/))
 
