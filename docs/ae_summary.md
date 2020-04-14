@@ -5,7 +5,8 @@ layout: docs
 
 Some examples of integrations built with this API are: 
 - [TabPy](https://github.com/tableau/TabPy) 
-- [MATLAB integration](https://www.mathworks.com/products/reference-architectures/tableau.html) 
+- [MATLAB integration](https://www.mathworks.com/products/reference-architectures/tableau.html)
+- [Ople.ai ML predictive modeling](https://ople.ai/tableau-integration/)
 - [Haskell language integration](https://databoss.starschema.net/tableau-external-services-api-adding-haskell-calculations/) 
 - [AltTabPy](https://alttabpy.readthedocs.io/en/latest/index.html)
 - [Additional Tableau Functions](https://glitch.com/edit/#!/ext-api-test?path=README.md:1:0)
