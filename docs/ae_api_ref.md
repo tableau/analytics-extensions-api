@@ -70,7 +70,7 @@ Property | Description
 --- | ---
 `description` | String that is hard coded in the `state.ini` file and can be edited there.
 `creation_time` |  Creation time in seconds since 1970-01-01, hard coded in the `state.ini` file, where it can be edited.
-`state_path` | State file path of the server (the value of the TABPY_STATE_PATH at the time the server was started).
+`state_path` | State file path of the server.
 `server_version` | The server version tag. Clients can use this information for compatibility checks.
 `name` | The server instance name. Can be edited in `state.ini` file.
 `version` | Collection of API versions supported by the server. Each entry in the collection is an API version which has a corresponding list of properties.
