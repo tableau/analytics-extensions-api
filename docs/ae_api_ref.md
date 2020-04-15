@@ -12,11 +12,11 @@ layout: docs
 
 Use the Tableau Analytics Extensions REST API to extend Tableau calculations dynamically to include popular data science programming languages and external tools and platforms.
 
-## API Version 1 (Implemented in Tableau 20.1+)
+## API Version 1 (Implemented in Tableau 2020.1+)
 
 ### Tableau Implementation
 
-The methods in this section are implemented in Tableau products as of version 20.1. In Tableau Desktop, the 'Test Connection' button in the Analytics Extension connection dialogue will call the /info method to determine if authentication is required and test if the analytics extension can be connected to succesfully. When SCRIPT_X calculations execute in Tableau Desktop and Server they call the /info and the /evaluate methods to establish authentication and evaluate the code or function call.
+The methods in this section are implemented in Tableau products as of version 2020.1. In Tableau Desktop, the 'Test Connection' button in the Analytics Extension connection dialogue will call the /info method to determine if authentication is required and test if the analytics extension can be connected to succesfully. When SCRIPT_X calculations execute in Tableau Desktop and Server they call the /info and the /evaluate methods to establish authentication and evaluate the code or function call.
 
 ### GET /info
 
@@ -53,9 +53,9 @@ For a successful call:
   {
       "description": "",
       "creation_time": "0",
-      "state_path": "e:\\dev\\TabPy\\tabpy-server\\tabpy_server",
+      "state_path": "e:\\dev\\server\\server\\server",
       "server_version": "0.4.1",
-      "name": "TabPy Server",
+      "name": "Server",
       "versions": {
           "v1": {
               "features": {}
@@ -71,8 +71,8 @@ Property | Description
 `description` | String that is hard coded in the `state.ini` file and can be edited there.
 `creation_time` |  Creation time in seconds since 1970-01-01, hard coded in the `state.ini` file, where it can be edited.
 `state_path` | State file path of the server (the value of the TABPY_STATE_PATH at the time the server was started).
-`server_version` | TabPy Server version tag. Clients can use this information for compatibility checks.
-`name` | TabPy server instance name. Can be edited in `state.ini` file.
+`server_version` | The server version tag. Clients can use this information for compatibility checks.
+`name` | The server instance name. Can be edited in `state.ini` file.
 `version` | Collection of API versions supported by the server. Each entry in the collection is an API version which has a corresponding list of properties.
 `version.`*`<ver>`* | Set of properties for an API version.
 `version.`*`<ver>.features`* | Set of an API's available features.
@@ -93,9 +93,9 @@ When authentication is enabled for v1 API `/info` call, the response contains th
   {
       "description": "",
       "creation_time": "0",
-      "state_path": "e:\\dev\\TabPy\\tabpy-server\\tabpy_server",
+      "state_path": "e:\\dev\\server\\server\\server",
       "server_version": "0.4.1",
-      "name": "TabPy Server",
+      "name": "Server",
       "versions": {
           "v1": {
               "features": {
@@ -117,7 +117,7 @@ Property | Description
 --- | ---
 `required` | Authentication is never optional for a client to use if it is in the features list. Both settings of true or false will result in a requirement for authentication.
 `methods` | List of supported authentication methods with their properties.
-`methods.basic-auth` | TabPy requires basic access authentication. See [TabPy Server Configuration Instructions](server-config.md#authentication) for how to configure authentication.
+`methods.basic-auth` | Basic access authentication. 
 
 
 ### POST /evaluate
