@@ -15,9 +15,9 @@ Response body:
 {
     "description": "",
     "creation_time": "0",
-    "state_path": "e:\\dev\\TabPy\\tabpy-server\\tabpy_server",
+    "state_path": "e:\\dev\\server",
     "server_version": "0.4.1",
-    "name": "TabPy Server",
+    "name": "Server",
     "versions": {
         "v1": {
             "features": {
