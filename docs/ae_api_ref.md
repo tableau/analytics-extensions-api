@@ -117,7 +117,7 @@ Property | Description
 --- | ---
 `required` | Authentication is never optional for a client to use if it is in the features list. Both settings of true or false will result in a requirement for authentication.
 `methods` | List of supported authentication methods with their properties.
-`methods.basic-auth` | Basic access authentication. 
+`methods.basic-auth` | HTTP basic authentication. 
 
 
 ### POST /evaluate
@@ -145,8 +145,21 @@ Example response:
 HTTP/1.1 200 OK
 Content-Type: application/json
 
-3
+[
+                4,
+                1,
+                8
+]
 ```
+
+Tableau expects the /evaluate method to return either:
+* exactly 1 value which is then copied to each row in the table behind a viz.
+-or- 
+* a collection of the same size as there are rows in the input data.
+
+If a scalar value is returned, that value will be assigned to the calculated field in Tableau for each row in the field.
+
+If an array response is returned, the number of elements in the array must exactly match the number of rows in the calculated field that the response will be assigned to. Usually, this is done by sending from Tableau an array with the right number of elements as an input parameter in the /evaluate request body. The Analytics Extension should then return an array of the same size as the input parameter.
 
 Using curl:
 
