@@ -11,4 +11,6 @@ The username and password values that have been configured in Tableau are passed
 
 On the Tableau side, Authentication is configured in Tableau Desktop via the Analytics Extensions UI: [https://help.tableau.com/current/pro/desktop/en-us/r_connection_manage.htm#configure-an-external-service-connection](https://help.tableau.com/current/pro/desktop/en-us/r_connection_manage.htm#configure-an-external-service-connection)
 
-In Server up to version 20.1, connections with are configured for Analytics Extensions using the TSM Security command: [https://help.tableau.com/current/server/en-us/cli_security_tsm.htm#tsm_security_vizql-extsvc-ssl-enable](https://help.tableau.com/current/server/en-us/cli_security_tsm.htm#tsm_security_vizql-extsvc-ssl-enable)
+In Server up to version 2020.1, connections with are configured for Analytics Extensions using the TSM Security command: [https://help.tableau.com/current/server/en-us/cli_security_tsm.htm#tsm_security_vizql-extsvc-ssl-enable](https://help.tableau.com/current/server/en-us/cli_security_tsm.htm#tsm_security_vizql-extsvc-ssl-enable)
+
+For information about how to configure SSL on Tableau Server, see [Server SSL](https://help.tableau.com/current/server/en-us/config_r_tabpy.htm#server-ssl).
