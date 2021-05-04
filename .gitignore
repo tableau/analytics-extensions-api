@@ -4,6 +4,6 @@ node_modules/
 _site/
 node_modules/
 npm-debug.log
-
+Gemfile.lock
 # Ignore webpack generated files
 dist/
