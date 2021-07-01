@@ -1,5 +1,5 @@
 ---
-title: Configure Tableau Server Connection
+title: Configure Tableau Server/Online Connection
 layout: docs
 ---
 
