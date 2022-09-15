@@ -10,13 +10,13 @@ layout: docs
 
 ----
 
-Use the Tableau Analytics Extensions REST API to extend Tableau  dynamically to include popular data science programming languages and external tools and platforms.
+Use the Tableau Analytics Extensions REST API to extend Tableau dynamically to include popular data science programming languages and external tools and platforms.
 
 ## API Version 1 (Implemented in Tableau 2020.1+)
 
 ### Tableau Implementation
 
-The methods in this section are implemented in Tableau products as of version 2020.1. In Tableau Desktop, the 'Test Connection' button in the Analytics Extension connection dialogue will call the /info method to determine if authentication is required and test if the analytics extension can be connected to succesfully. When analytics extension functions execute in Tableau Desktop and Server they call the /info and the /evaluate methods to establish authentication and evaluate the code or function call.
+The methods in this section are implemented in Tableau products as of version 2020.1. In Tableau Desktop, the 'Test Connection' button in the Analytics Extension connection dialogue will call the /info method to determine if authentication is required and test if the analytics extension can be connected to successfully. When analytics extension functions execute in Tableau Desktop and Server they call the /info and the /evaluate methods to establish authentication and evaluate the code or function call.
 
 ### GET /info
 
