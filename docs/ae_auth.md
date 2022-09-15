@@ -7,7 +7,7 @@ The requirement for authentication in a connection is indicated by including the
 
 Tableau currently supports basic authentication with username and password. 
 
-The username and password values that have been configured in Tableau are passed to the Analytics Extension using the HTTP headers of calls to the /evaluate method.
+The username and password values that have been configured in Tableau are passed to the Analytics Extension using the HTTP headers of calls to the `/evaluate` and `/query/{function_name}` methods.
 
 ​If the authentication requirement is turned off in the Analytics Extension but a username and password are still included in the request, the Analytics Extension will respond with a ```406``` error.
 

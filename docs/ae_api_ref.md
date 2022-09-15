@@ -176,3 +176,17 @@ Table Extension Example:
 curl -X POST http://localhost:9004/evaluate \
 -d '{"data": {"_arg1": {"Name": ["Bob", "Alice"], "Score": [1, 2]}, "script": "return _arg1"}'
 ```
+
+### POST /query/{function_name}
+
+Executes a predefined function (i.e. function_name) that is already stored on the analytics extension, replacing named parameters with their provided values.
+
+The expected POST body is a JSON dictionary with one element:
+
+- **data**: contains the parameter values passed to the code. These values are key-value pairs, and the keys are user defined (i.e. do not following a specific convention like they do for the evaluate endpoint). These take dimensions and measures from Tableau and pass them to the analytics extension.
+
+Curl Example: 
+
+```bash
+curl -X POST http://localhost:9004/query/clustering -d '{"data": {"x": [6.35, 6.40, 6.65], "y": [1.95, 1.95, 2.05]}}'
+```
