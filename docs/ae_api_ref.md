@@ -10,13 +10,13 @@ layout: docs
 
 ----
 
-Use the Tableau Analytics Extensions REST API to extend Tableau calculations dynamically to include popular data science programming languages and external tools and platforms.
+Use the Tableau Analytics Extensions REST API to extend Tableau  dynamically to include popular data science programming languages and external tools and platforms.
 
 ## API Version 1 (Implemented in Tableau 2020.1+)
 
 ### Tableau Implementation
 
-The methods in this section are implemented in Tableau products as of version 2020.1. In Tableau Desktop, the 'Test Connection' button in the Analytics Extension connection dialogue will call the /info method to determine if authentication is required and test if the analytics extension can be connected to succesfully. When SCRIPT_X calculations execute in Tableau Desktop and Server they call the /info and the /evaluate methods to establish authentication and evaluate the code or function call.
+The methods in this section are implemented in Tableau products as of version 2020.1. In Tableau Desktop, the 'Test Connection' button in the Analytics Extension connection dialogue will call the /info method to determine if authentication is required and test if the analytics extension can be connected to succesfully. When analytics extension functions execute in Tableau Desktop and Server they call the /info and the /evaluate methods to establish authentication and evaluate the code or function call.
 
 ### GET /info
 
@@ -126,8 +126,8 @@ Executes a block of code, replacing named parameters with their provided values.
 
 The expected POST body is a JSON dictionary with two elements:
 
-- **data**: a value that contains the parameter values passed to the code. These values are key-value pairs, following a specific convention for key names (_arg1, _arg2, etc.). These take dimensions and measures from Tableau and pass them to the external service.
-- **script**: a value that contains one or more lines of code or instructions for the analytics extension. Any references to the data or parameter names will be replaced by their values according to data. It defines the instructions about what the external service should execute. For example, a Python script, the name of a remote process or function, a script in another language, or it could be empty if the service just performs a single function.
+- **data**: a value that contains the parameter values passed to the code. These values are key-value pairs, following a specific convention for key names (_arg1, _arg2, etc.). These take dimensions and measures from Tableau and pass them to the analytics extension. When using the analytics extension with a Table Extension, the data element will contain just one key (_arg1) that represents the input table in object/dict format.
+- **script**: a value that contains one or more lines of code or instructions for the analytics extension. Any references to the data or parameter names will be replaced by their values according to data. It defines the instructions about what the analytics extension should execute. For example, a Python script, the name of a remote process or function, a script in another language, or it could be empty if the service just performs a single function.
 
 Example request:
 
@@ -152,7 +152,7 @@ Content-Type: application/json
 ]
 ```
 
-Tableau expects the /evaluate method to return either:
+When using **table calculations**, Tableau expects the /evaluate method to return either:
 * exactly 1 value which is then copied to each row in the table behind a viz.
 -or- 
 * a collection of the same size as there are rows in the input data.
@@ -161,9 +161,18 @@ If a scalar value is returned, that value will be assigned to the calculated fie
 
 If an array response is returned, the number of elements in the array must exactly match the number of rows in the calculated field that the response will be assigned to. Usually, this is done by sending from Tableau an array with the right number of elements as an input parameter in the /evaluate request body. The Analytics Extension should then return an array of the same size as the input parameter.
 
-Using curl:
+Table Calculations Example:
 
 ```bash
 curl -X POST http://localhost:9004/evaluate \
 -d '{"data": {"_arg1": 1, "_arg2": 2}, "script": "return _arg1 + _arg2"}'
+```
+
+When using **Table Extensions**, Tableau expects the /evaluate method to return an object with a key-value pair for each column in the return table. The key is the column name, and the value is an array of data values.
+
+Table Extension Example:
+
+```bash
+curl -X POST http://localhost:9004/evaluate \
+-d '{"data": {"_arg1": {"Name": ["Bob", "Alice"], "Score": [1, 2]}, "script": "return _arg1"}'
 ```
