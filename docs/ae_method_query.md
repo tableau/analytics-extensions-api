@@ -9,7 +9,9 @@ Executes a predefined function (i.e. function_name) that is already stored on th
 
 The Query endpoint is used in conjunction with the MODEL_EXTENSION functions in a Tableau table calculation.
 
-Username and password values that have been configured in Tableau are passed to the Analytics Extension using the HTTP headers of calls to the /evaluate method.
+If you would like to only use the Query endpoint, you can inform the client that the Evaluate endpoint is disabled by adding the key-value pair `"evaluate_enabled": false` to the features property of the /info endpoint.
+
+Username and password values that have been configured in Tableau are passed to the Analytics Extension using the HTTP headers of calls to the /query/{function_name} method.
 
 The POST body is a JSON dictionary with one element:
 
