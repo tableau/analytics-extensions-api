@@ -3,7 +3,7 @@ title: Introduction
 layout: docs
 ---
 
-The Analytics Extensions API can be used to extend Tableau calculations to dynamically include popular data science programming languages and external tools and platforms. Use it to create integrations similar to Tableau’s integrations with TabPy and MATLAB. Analytics extensions can receive data from Tableau in real time and return it back after it has been scored, transformed, or augmented.
+The Analytics Extensions API can be used to extend Tableau to dynamically include popular data science programming languages and external tools and platforms. Use it to create integrations similar to Tableau’s integrations with TabPy and MATLAB. Analytics extensions can receive data from Tableau in real time and return it back after it has been scored, transformed, or augmented.
 
 The Analytics Extensions API is based on the Python integration for Tableau, TabPy, which allows you to call Python functions directly from Tableau. The API that was used originally for TabPy has been expanded to make it more generalizable to any external analytics engine. Previously, analytics extensions were known as external services.
 
