@@ -3,7 +3,7 @@ title: Example—TabPy
 layout: docs
 ---
 
-TabPy, the Tableau Python Server, is an Analytics Extension implementation which expands Tableau’s capabilities by allowing users to execute Python scripts and saved functions via Tableau’s table calculations. TabPy is an open source project so you can see the implementation and documentation at [https://github.com/tableau/TabPy](https://github.com/tableau/TabPy).
+TabPy, the Tableau Python Server, is an Analytics Extension implementation which expands Tableau’s capabilities by allowing users to execute Python scripts and saved functions via Tableau’s table calculations or Table Extensions. TabPy is an open source project so you can see the implementation and documentation at [https://github.com/tableau/TabPy](https://github.com/tableau/TabPy).
 
 ## Using TabPy to Cluster Tornado Origins
 
