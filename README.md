@@ -4,7 +4,7 @@
 
 ## Why the Tableau Analytics Extensions API?
 
-The Analytics Extensions API lets you extend Tableau calculations to dynamically include popular data science programming languages and external tools and platforms
+The Analytics Extensions API lets you extend Tableau to dynamically include popular data science programming languages and external tools and platforms.
 
 ## Contributions
 
