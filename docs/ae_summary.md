@@ -5,6 +5,7 @@ layout: docs
 
 Some examples of integrations built with this API are: 
 - [TabPy](https://github.com/tableau/TabPy) - Execute Python code and saved Python functions in Tableau.
+- [RestRserve](https://tableau.github.io/analytics-extensions-api/docs/ae_example_rserve.html) - Serve Rserve over HTTP through the Analytics Extensions API.
 - [MATLAB integration](https://www.mathworks.com/products/reference-architectures/tableau.html) Use MATLAB models in Tableau visualizations.
 - [Ople.ai ML predictive modeling](https://ople.ai/tableau-integration/) - Score data with predictive models built in Ople.ai
 - [Haskell language integration](https://databoss.starschema.net/tableau-external-services-api-adding-haskell-calculations/) - Execute Haskell code in Tableau.
